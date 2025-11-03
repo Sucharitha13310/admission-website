@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABC College Admission Portal</title>
+
+<style>
+/* ===== GLOBAL STYLES ===== */
+* {margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif;}
+body {background-color: #f7f9fb; color: #333; line-height: 1.6; scroll-behavior: smooth;}
+
+/* ===== HEADER ===== */
+header {
+  background-color: #004aad;
+  color: white;
+  text-align: center;
+  padding: 25px 10px;
+}
+header h1 {font-size: 28px;}
+nav ul {display: flex; justify-content: center; list-style: none; margin-top: 10px;}
+nav ul li {margin: 0 15px;}
+nav ul li a {color: white; text-decoration: none; font-weight: bold;}
+nav ul li a:hover {text-decoration: underline;}
+
+/* ===== SECTIONS ===== */
+.section {padding: 50px 20px; text-align: center;}
+.section:nth-child(even) {background-color: #e9eff5;}
+.section h2 {color: #004aad; margin-bottom: 20px;}
+
+/* ===== HOME ===== */
+.banner {
+  background: url('https://images.unsplash.com/photo-1588072432836-e10032774350') center/cover no-repeat;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 6px #000;
+}
+
+/* ===== COURSES ===== */
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 700px;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 12px;
+}
+th {background-color: #004aad; color: white;}
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+/* ===== ADMISSION FORM ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+button {
+  background-color: #004aad;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {background-color: #003580;}
+
+/* ===== GALLERY ===== */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+.gallery img {
+  width: 250px;
+  height: 160px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+.gallery img:hover {transform: scale(1.05);}
+
+/* ===== CONTACT ===== */
+iframe {
+  width: 80%;
+  height: 250px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+.social-icons a {
+  color: white;
+  margin: 0 8px;
+  font-size: 20px;
+  text-decoration: none;
+}
+.social-icons a:hover {color: #00aced;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>ABC College Admission Portal</h1>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#admission">Admission</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="section">
+  <div class="banner">Welcome to ABC College of Excellence</div>
+  <p style="margin-top:20px;">Empowering minds through quality education and innovation since 1990.</p>
+</section>
+
+<!-- COURSES -->
+<section id="courses" class="section">
+  <h2>Courses Offered</h2>
+  <table>
+    <tr><th>Course</th><th>Duration</th><th>Fees (per year)</th></tr>
+    <tr><td>B.Sc Computer Science</td><td>3 Years</td><td>₹45,000</td></tr>
+    <tr><td>B.Com</td><td>3 Years</td><td>₹40,000</td></tr>
+    <tr><td>BBA</td><td>3 Years</td><td>₹50,000</td></tr>
+    <tr><td>BA (English, Psychology, Economics)</td><td>3 Years</td><td>₹35,000</td></tr>
+  </table>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <h2>About Us</h2>
+  <p>ABC College is one of the leading educational institutions offering a wide range of undergraduate programs in arts, commerce, and science. Our mission is to provide holistic education, foster creativity, and prepare students for global opportunities.</p>
+  <p style="margin-top:10px;">The college has modern infrastructure, experienced faculty, and a vibrant campus life focused on learning and innovation.</p>
+</section>
+
+<!-- ADMISSION -->
+<section id="admission" class="section">
+  <h2>Online Admission Form</h2>
+  <form id="admissionForm" onsubmit="return submitForm()">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email Address" required>
+    <select id="course" required>
+      <option value="">Select Course</option>
+      <option>B.Sc Computer Science</option>
+      <option>B.Com</option>
+      <option>BBA</option>
+      <option>BA</option>
+    </select>
+    <input type="text" id="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" required>
+    <textarea id="address" placeholder="Address" rows="3" required></textarea>
+    <button type="submit">Submit Application</button>
+  </form>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section">
+  <h2>Campus Gallery</h2>
+  <div class="gallery">
+    <img src="https://th.bing.com/th/id/R.bfa433e57bbf4793d64c36f57201aecb?rik=ZsqVl7tsikZDEQ&riu=http%3a%2f%2fimages.unsplash.com%2fphoto-1607237138185-eedd9c632b0b%3fcrop%3dentropy%26cs%3dtinysrgb%26fit%3dmax%26fm%3djpg%26ixid%3dMnwxMjA3fDB8MXxzZWFyY2h8MXx8Y29sbGVnZSUyMGNhbXB1c3x8MHx8fHwxNjI3MDg3OTEw%26ixlib%3drb-1.2.1%26q%3d80%26w%3d1080&ehk=eekDWr5Fx77j%2b2VTDIgWhMYIt%2bHu0XJrjSRFzi%2bGamE%3d&risl=&pid=ImgRaw&r=0" alt="Campus">
+    <img src="https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Library">
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" alt="Classroom">
+    <img src="https://images.unsplash.com/photo-1558002038-1055907df827" alt="Lab">
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+  <p>Email: info@abccollege.edu</p>
+  <p>Phone: +91 98765 43210</p>
+  <p>Address: ABC College Road, Hyderabad, India</p>
+  <br>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.3231669150273!2d78.474556!3d17.385044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97dfd10a0a4f%3A0x34d8e39e2e9a3c0a!2sHyderabad!5e0!3m2!1sen!2sin!4v1698662990000" allowfullscreen=""></iframe>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 ABC College | All Rights Reserved</p>
+  <div class="social-icons">
+    <a href="#">🌐</a>
+    <a href="#">📘</a>
+    <a href="#">📸</a>
+    <a href="#">🐦</a>
+  </div>
+</footer>
+
+<script>
+function submitForm() {
+  const name = document.getElementById('name').value;
+  alert("Thank you, " + name + "! Your admission form has been submitted successfully.");
+  document.getElementById('admissionForm').reset();
+  return false;
+}
+</script>
+
+</body>
+</html>
